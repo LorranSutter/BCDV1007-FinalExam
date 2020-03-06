@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node pokedex.js"
+    "start": "node pokedex.js",
+    "devstart": "nodemon pokedex.js",
+    "serverstart": "SET DEBUG=bcdv1007-finalexam-lorransutter:* npm run devstart"
   },
   "repository": {
     "type": "git",
