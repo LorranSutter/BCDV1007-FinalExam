@@ -35,7 +35,7 @@ $(document).ready(function () {
         }).done(function (data, status, req) {
             $(`ul#${id}`).remove();
         }).fail(function (req, status, err) {
-            alert(`Oh uh! Something went wrong. Got status: ${status}\nwith error: ${err}`);
+            console.log(`Oh uh! Something went wrong. Got status: ${status}\nwith error: ${err}`);
         })         
     }
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
         }
     })
     .fail(function() {
-        alert('Error!');
+        console.log(err)
     });
 
 
@@ -61,16 +61,10 @@ $(document).ready(function () {
         }
         $.post('/api/pokedex', data)
          .done((data) => {
-            $.get('/api/pokedex')
-             .done((data) => {
-                console.log(data);
-                for(pokemon of data) {
-                    includePokemon(pokemon)
-                }
-            })       
+            // includePokemon(data);
          })
-         .fail(function() {
-             alert('Error!');
+         .fail(function(err) {
+             console.log(err)
         });
     }
 

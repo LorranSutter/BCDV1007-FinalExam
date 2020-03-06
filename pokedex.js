@@ -36,6 +36,7 @@ function PostPokedexAPI(req, res, next) {
     } catch (error) {
         next(error);
     }
+    res.redirect('/page2.html')
 }
 
 app.post('/api/pokedex', PostPokedexAPI);
