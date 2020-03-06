@@ -4,7 +4,7 @@ const mongoDB = require('mongodb');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -51,4 +51,4 @@ function DeletePokedexAPI(req, res, next) {
 
 app.delete('/api/pokedex', DeletePokedexAPI);
 
-app.listen(port, function() {console.log(`Example cassette server is running on port ${port}!`)});
+app.listen(port, function() {console.log(`Pokedex is running on port ${port}!`)});
