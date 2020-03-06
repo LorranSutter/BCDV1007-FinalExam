@@ -32,19 +32,26 @@ header {
     border-bottom: 1px dotted black;
 }
 
-#list-container {
+#pokedex-list {
     margin: 1em 0;
     padding: 1em 1em 1em 2em;
-    border-top: 1px dotted black;
-    border-bottom: 1px dotted black;
 }
 
-#list-container > ul {
+#pokedex-list > ul {
     list-style-type: circle;
+    border-top: 1px dotted black;
 }
 
-#list-container li {
+#pokedex-list li {
     margin: 0.5em 0;
+}
+
+#pokedex-list img {
+    width: 100px;
+}
+
+#pokedex-list > ul > li:last-child {
+    list-style-type: none;
 }
 
 #new-pokemon > h2 {
@@ -61,7 +68,4 @@ header {
 
 #new-pokemon li {
     margin: 1em 0;
-}
-
-@media screen and (max-width: 800px) {
 }

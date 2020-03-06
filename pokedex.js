@@ -1,62 +1,54 @@
 const express = require('express');
-const mongoIO = require('./io');
-
-// ** ToDO: place your mongo Atlas url in the url module ** 
-
-var bodyParser = require('body-parser') 
+const mongoIO = require('./io.js')
+const mongoDB = require('mongodb');
+const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-app.use(express.static('static'));  // <-- serve static files
-app.use(bodyParser.urlencoded({ extended: false }));  // <-- make request body data available
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-function GetCassettesApi (req, res, next) {
-    function resultsCallback (err, docs) {
+app.use(express.static('static'))
+
+app.get('/', function(req, res) {
+    res.redirect('/index.html');
+});
+
+function GetPokedexApi (req, res, next) {
+    function sendDataCallback(err, docs) {
         if (docs) {
-            res.json({'cassettesList': docs})
+            res.json(docs);
         } else {
             console.log('ouch');
             console.log(err);
         }
     }
-    mongoIO.readItem(resultsCallback);
+
+    mongoIO.readItem(sendDataCallback);
 }
 
-app.get('/api/cassettes', GetCassettesApi)
+app.get('/api/pokedex', GetPokedexApi)
 
-function PostCassettesApi (req, res, next) {
-    if (req.body.add_cassette) {
-        try {
-            mongoIO.writeItem(req.body)
-        } catch (e) {
-            next(`Ouch! ${e}`);
-        }
-        res.redirect('/cassettes.html')
-    }
-}
-
-app.post('/api/cassettes', PostCassettesApi)
-app.get('/', function(req, res) {
-    res.redirect('/cassettes.html')
-})
-
-
-function DeleteCassetteApi(req, res, next) { // Even your error handling has to be checked! Originally forgot to include next
+function PostPokedexAPI(req, res, next) {
     try {
-        var title = req.body.title;
-        console.log(`Trying to delete: ${title}`);
-        mongoIO.deleteItem({title: req.body.title});
-        req.body.status = 'deleted';
-        console.log(`Deleted ${title}`);
-        res.send(req.body);  // We send this back, because the event will be out of context in the browser
-    } catch (e) {
-        next(`Ouch! ${e}`);
+        mongoIO.writeItem(req.body);
+    } catch (error) {
+        next(error);
     }
-    
 }
 
-app.delete('/api/cassettes', DeleteCassetteApi)
+app.post('/api/pokedex', PostPokedexAPI);
 
-app.listen(port, function() {console.log(`Example app listening on port ${port}!`)})
+function DeletePokedexAPI(req, res, next) {
+    try {
+        mongoIO.deleteItem({ _id: mongoDB.ObjectID(req.body._id), title: req.body.title });
+        res.send({ _id: mongoDB.ObjectID(req.body._id) });
+    } catch (error) {
+        next(error);
+    }
+}
+
+app.delete('/api/pokedex', DeletePokedexAPI);
+
+app.listen(port, function() {console.log(`Example cassette server is running on port ${port}!`)});

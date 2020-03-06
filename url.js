@@ -1,1 +1,1 @@
-exports.url = "mongodb+srv://lorran:<password>@cluster0-lyl06.gcp.mongodb.net/FinalExam?retryWrites=true&w=majority"
+exports.url = 'mongodb+srv://lorran:BCDV1007@cluster0-lyl06.gcp.mongodb.net/test?retryWrites=true&w=majority';
