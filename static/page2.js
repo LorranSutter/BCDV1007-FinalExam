@@ -53,24 +53,31 @@ $(document).ready(function () {
 
 
     function postPokemon() {
-        let data = {
-            name : $("#name").val(),
-            height : $("#height").val(),
-            weight : $("#weight").val(),
-            image : $("#image").val()
-        }
+        let name = $("#name").val();
+        let height = $("#height").val();
+        let weight = $("#weight").val();
+        let image = $("#image").val();
 
-        let heightInt = Number.isInteger($("#height").val());
-        let weightInt = Number.isInteger($("#weight").val());
-
-        if(!heightInt) $("#height").css('border','1px solid red');
-        if(!weightInt) $("#weight").css('border','1px solid red');
-        if(!heightInt || !weightInt) return;
+        if(name === "" && height === "" && weight === "" && image === "") return
+        
+        $("#height").css('border','1px solid gray');
+        $("#weight").css('border','1px solid gray');
+        
+        let heightInt = height !== "" && !Number.isInteger(parseInt(height));
+        let weightInt = weight !== "" && !Number.isInteger(parseInt(weight));
+        // let weightInt = Number.isInteger(parseInt($("#weight").val()));
+        
+        if(heightInt) $("#height").css('border','1px solid red');
+        if(weightInt) $("#weight").css('border','1px solid red');
+        if(heightInt || weightInt) return;
+        
+        let data = { name, height, weight, image }
 
         $("#name").val("");
         $("#height").val("");
         $("#weight").val("");
         $("#image").val("");
+        
         $.post('/api/pokedex', data)
          .done((data) => {
             // includePokemon(data);

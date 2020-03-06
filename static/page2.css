@@ -69,3 +69,7 @@ header {
 #new-pokemon li {
     margin: 1em 0;
 }
+
+input[type='text'] {
+    border: '1px solid gray';
+}
