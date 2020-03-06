@@ -47,9 +47,9 @@ $(document).ready(function () {
                 includePokemon(pokemon)
         }
     })
-    // .fail(function() {
-    //     alert('Error!');
-    // });
+    .fail(function() {
+        alert('Error!');
+    });
 
 
     function postPokemon() {
@@ -69,9 +69,9 @@ $(document).ready(function () {
                 }
             })       
          })
-        //  .fail(function() {
-        //      alert('Error!');
-        // });
+         .fail(function() {
+             alert('Error!');
+        });
     }
 
     document.getElementById('submit').addEventListener('click', postPokemon);
