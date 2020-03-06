@@ -59,6 +59,14 @@ $(document).ready(function () {
             weight : $("#weight").val(),
             image : $("#image").val()
         }
+
+        let heightInt = Number.isInteger($("#height").val());
+        let weightInt = Number.isInteger($("#weight").val());
+
+        if(!heightInt) $("#height").css('border','1px solid red');
+        if(!weightInt) $("#weight").css('border','1px solid red');
+        if(!heightInt || !weightInt) return;
+
         $("#name").val("");
         $("#height").val("");
         $("#weight").val("");
