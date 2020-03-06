@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e5e199;
+}
+
+#container {
+    background-color: white;
+    height: 80%;
+
+    margin: 3em;
+    padding: 2em;
+    border-radius: 15px;
+
+    box-shadow: 10px 10px 8px #888888;
+}
+
+h1, h2 {
+    font-family: Cabin;
+}
+
+p {
+    font-family: Merriweather;
+    padding: 1em 0;
+}
+
+header {
+    padding: 0 0 1em 0;
+    border-bottom: 1px dotted black;
+}
+
+#list-container {
+    margin: 1em 0;
+    padding: 1em 1em 1em 2em;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+}
+
+#list-container > ul {
+    list-style-type: circle;
+}
+
+#list-container li {
+    margin: 0.5em 0;
+}
+
+#new-pokemon > h2 {
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+    padding: 0.5em 0;
+}
+
+#new-pokemon > ul {
+    margin: 1em 0;
+    padding: 1em 1em 1em 2em;
+    border-bottom: 1px dotted black;
+}
+
+#new-pokemon li {
+    margin: 1em 0;
+}
+
+@media screen and (max-width: 800px) {
+}
