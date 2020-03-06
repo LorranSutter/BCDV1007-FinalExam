@@ -59,6 +59,10 @@ $(document).ready(function () {
             weight : $("#weight").val(),
             image : $("#image").val()
         }
+        $("#name").val("");
+        $("#height").val("");
+        $("#weight").val("");
+        $("#image").val("");
         $.post('/api/pokedex', data)
          .done((data) => {
             // includePokemon(data);
