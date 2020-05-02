@@ -25,31 +25,30 @@ $(document).ready(function () {
 
         $(`#li-image-${_id}`).append(button);
     }
-    
+
     function deletePokemon(e) {
         let id = e.target.id;
         $.ajax({
             url: '/api/pokedex',
             type: 'DELETE',
-            data: {_id: id},
+            data: { _id: id },
         }).done(function (data, status, req) {
             $(`ul#${id}`).remove();
         }).fail(function (req, status, err) {
             console.log(`Oh uh! Something went wrong. Got status: ${status}\nwith error: ${err}`);
-        })         
+        })
     }
 
 
     $.get('/api/pokedex')
         .done((data) => {
-            console.log(data);
-            for(pokemon of data) {
-                includePokemon(pokemon)
-        }
-    })
-    .fail(function() {
-        console.log(err)
-    });
+            for (pokemon of data) {
+                includePokemon(pokemon);
+            }
+        })
+        .fail(function () {
+            console.log(err)
+        });
 
 
     function postPokemon() {
@@ -58,33 +57,32 @@ $(document).ready(function () {
         let weight = $("#weight").val();
         let image = $("#image").val();
 
-        if(name === "" && height === "" && weight === "" && image === "") return
-        
-        $("#height").css('border','1px solid gray');
-        $("#weight").css('border','1px solid gray');
-        
+        if (name === "" && height === "" && weight === "" && image === "") return
+
+        $("#height").css('border', '1px solid gray');
+        $("#weight").css('border', '1px solid gray');
+
         let heightInt = height !== "" && !Number.isInteger(parseInt(height));
         let weightInt = weight !== "" && !Number.isInteger(parseInt(weight));
-        // let weightInt = Number.isInteger(parseInt($("#weight").val()));
-        
-        if(heightInt) $("#height").css('border','1px solid red');
-        if(weightInt) $("#weight").css('border','1px solid red');
-        if(heightInt || weightInt) return;
-        
-        let data = { name, height, weight, image }
+
+        if (heightInt) $("#height").css('border', '1px solid red');
+        if (weightInt) $("#weight").css('border', '1px solid red');
+        if (heightInt || weightInt) return;
+
+        let pokemon = { name, height, weight, image }
 
         $("#name").val("");
         $("#height").val("");
         $("#weight").val("");
         $("#image").val("");
-        
-        $.post('/api/pokedex', data)
-         .done((data) => {
-            // includePokemon(data);
-         })
-         .fail(function(err) {
-             console.log(err)
-        });
+
+        $.post('/api/pokedex', pokemon)
+            .done((data) => {
+                includePokemon(pokemon);
+            })
+            .fail(function (err) {
+                console.log(err)
+            });
     }
 
     document.getElementById('submit').addEventListener('click', postPokemon);

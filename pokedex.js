@@ -11,11 +11,11 @@ app.use(bodyParser.json())
 
 app.use(express.static('static'))
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.redirect('/index.html');
 });
 
-function GetPokedexApi (req, res, next) {
+function GetPokedexApi(req, res, next) {
     function sendDataCallback(err, docs) {
         if (docs) {
             res.json(docs);
@@ -52,4 +52,4 @@ function DeletePokedexAPI(req, res, next) {
 
 app.delete('/api/pokedex', DeletePokedexAPI);
 
-app.listen(port, function() {console.log(`Pokedex is running on port ${port}!`)});
+app.listen(port, function () { console.log(`Pokedex is running on port ${port}!`) });

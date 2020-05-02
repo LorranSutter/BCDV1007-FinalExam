@@ -1,75 +1,76 @@
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    background-color: #e5e199;
+	background-color: #e5e199;
 }
 
 #container {
-    background-color: white;
-    height: 80%;
+	background-color: white;
+	height: 80%;
 
-    margin: 3em;
-    padding: 2em;
-    border-radius: 15px;
+	margin: 3em;
+	padding: 2em;
+	border-radius: 15px;
 
-    box-shadow: 10px 10px 8px #888888;
+	box-shadow: 10px 10px 8px #888888;
 }
 
-h1, h2 {
-    font-family: Cabin;
+h1,
+h2 {
+	font-family: Cabin;
 }
 
 p {
-    font-family: Merriweather;
-    padding: 1em 0;
+	font-family: Merriweather;
+	padding: 1em 0;
 }
 
 header {
-    padding: 0 0 1em 0;
-    border-bottom: 1px dotted black;
+	padding: 0 0 1em 0;
+	border-bottom: 1px dotted black;
 }
 
 #pokedex-list {
-    margin: 1em 0;
-    padding: 1em 1em 1em 2em;
+	margin: 1em 0;
+	padding: 1em 1em 1em 2em;
 }
 
 #pokedex-list > ul {
-    list-style-type: circle;
-    border-top: 1px dotted black;
+	list-style-type: circle;
+	border-top: 1px dotted black;
 }
 
 #pokedex-list li {
-    margin: 0.5em 0;
+	margin: 0.5em 0;
 }
 
 #pokedex-list img {
-    width: 100px;
+	width: 100px;
 }
 
 #pokedex-list > ul > li:last-child {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 #new-pokemon > h2 {
-    border-top: 1px dotted black;
-    border-bottom: 1px dotted black;
-    padding: 0.5em 0;
+	border-top: 1px dotted black;
+	border-bottom: 1px dotted black;
+	padding: 0.5em 0;
 }
 
 #new-pokemon > ul {
-    margin: 1em 0;
-    padding: 1em 1em 1em 2em;
-    border-bottom: 1px dotted black;
+	margin: 1em 0;
+	padding: 1em 1em 1em 2em;
+	border-bottom: 1px dotted black;
 }
 
 #new-pokemon li {
-    margin: 1em 0;
+	margin: 1em 0;
 }
 
-input[type='text'] {
-    border: '1px solid gray';
+input[type="text"] {
+	border: "1px solid gray";
 }
