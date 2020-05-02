@@ -14,3 +14,4 @@ Small application working as a [Pokédex](https://www.pokemon.com/) where you ar
 ## Resources and technologies
 - [Express](http://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
+- [JQuery](https://jquery.com/)
