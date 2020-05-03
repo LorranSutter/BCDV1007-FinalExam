@@ -32,8 +32,10 @@ $(document).ready(function () {
             url: '/api/pokedex',
             type: 'DELETE',
             data: { _id: id },
+            beforeSend: () => $('.loading').show()
         }).done(function (data, status, req) {
             $(`ul#${id}`).remove();
+            $('.loading').hide();
         }).fail(function (req, status, err) {
             console.log(`Oh uh! Something went wrong. Got status: ${status}\nwith error: ${err}`);
         })
@@ -76,9 +78,12 @@ $(document).ready(function () {
         $("#weight").val("");
         $("#image").val("");
 
+        $('.loading').show();
+        
         $.post('/api/pokedex', pokemon)
             .done((data) => {
                 includePokemon(pokemon);
+                $('.loading').hide();
             })
             .fail(function (err) {
                 console.log(err)
