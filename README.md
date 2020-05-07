@@ -7,7 +7,7 @@ Small application working as a [Pokédex](https://www.pokemon.com/) where you ar
 
 <div align="center">
 
-![Preview](../assets/exam_preview.gif?raw=true)
+![Preview](https://res.cloudinary.com/lorransutter/image/upload/v1588812692/bcdv1007_final_exam_preview.gif)
 
 </div>
 
