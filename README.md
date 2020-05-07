@@ -11,7 +11,7 @@ Small application working as a [Pokédex](https://www.pokemon.com/) where you ar
 
 </div>
 
-## :computer: Resources and technologies
+## :book: Resources and technologies :computer:
 - [Express](http://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [JQuery](https://jquery.com/)
