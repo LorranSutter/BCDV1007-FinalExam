@@ -1,1 +1,1 @@
-exports.url = 'mongodb+srv://lorran:BCDV1007@cluster0-lyl06.gcp.mongodb.net/test?retryWrites=true&w=majority';
+exports.url = 'DATABASE-URL';
