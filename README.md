@@ -12,6 +12,6 @@ Small application working as a [Pokédex](https://www.pokemon.com/) where you ar
 </div>
 
 ## :book: Resources and technologies :computer:
-- [Express](http://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [JQuery](https://jquery.com/)
+- [Express.js](http://expressjs.com/) - web application framework
+- [MongoDB](https://www.mongodb.com/) - NoSQL database
+- [JQuery](https://jquery.com/) - JS library designed to simplify HTML DOM interacto
